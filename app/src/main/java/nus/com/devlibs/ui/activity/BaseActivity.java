@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by sun on 2016/7/6.
@@ -33,9 +36,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     }
 
+
+
     Toast mToast;
-
-
 
     // 常用方法
     public void ShowToast(String text) {
