@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity
         mDatas.add(fileBean);
         fileBean = new FileBean(7,3,"根目录1-2");
         mDatas.add(fileBean);
-        fileBean = new FileBean(8,7,"根目录1-2-1");
+        fileBean = new FileBean(8,7,"根目录3-2-1");
         mDatas.add(fileBean);
 
         try {

@@ -101,7 +101,9 @@ public abstract class TreeListViewAdapter<T> extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         Node node = mVisibleNodes.get(position);
         convertView =getConvertView(node,position,convertView,parent);
-        convertView.setPadding(node.getLevel()*3,3,3,3);
+        Log.e("nodeGetLevel","level"+node.getLabel());
+        Log.e("nodeGetLevel","level"+node.getLevel());
+        convertView.setPadding(node.getLevel()*50,10,10,10);
 
         return convertView;
     }

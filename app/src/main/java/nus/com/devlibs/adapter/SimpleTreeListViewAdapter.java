@@ -44,8 +44,11 @@ public class SimpleTreeListViewAdapter<T> extends TreeListViewAdapter<T> {
             viewHolder.iv_icon.setVisibility(View.INVISIBLE);
         }else{
             viewHolder.iv_icon.setVisibility(View.VISIBLE);
-            viewHolder.iv_icon.setImageResource(node.getIcon());
-            viewHolder.tv_item.setText(node.getName());
+
+//            viewHolder.iv_icon.setImageResource(node.getIcon());
+
+
+            viewHolder.tv_item.setText(node.getLabel());
 
         }
 

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nus.com.devlibs.R;
+import nus.com.devlibs.tree.FileBean;
 import nus.com.devlibs.tree.utils.annotation.TreeNodeId;
 import nus.com.devlibs.tree.utils.annotation.TreeNodeLabel;
 import nus.com.devlibs.tree.utils.annotation.TreeNodePid;
@@ -23,6 +24,11 @@ public class TreeHelper {
      * @throws IllegalAccessException
      */
     public static <T> List<Node> converDatasNodes(List<T> datas) throws IllegalAccessException {
+        for (int i = 0; i < datas.size(); i++) {
+            String label = ((FileBean)datas.get(i)).getLabel();
+            Log.e("label","label == "+label);
+        }
+
         List<Node> nodes = new ArrayList<Node>();
         Node node = null;
         for (T t : datas){
@@ -37,6 +43,7 @@ public class TreeHelper {
                 if (field.getAnnotation(TreeNodeId.class)!=null){
                     field.setAccessible(true);
                     id = field.getInt(t);
+
                 }
                 if (field.getAnnotation(TreeNodePid.class)!=null){
                     field.setAccessible(true);
@@ -49,6 +56,9 @@ public class TreeHelper {
                 }
 
             }
+
+            Log.e("id","id= "+id);
+
              node = new Node(id,pid,label);
             nodes.add(node);
         }
@@ -105,12 +115,15 @@ public class TreeHelper {
 
         // 获得树的根结点
         List<Node> rootNodes = getRootNodes(nodes);
-
-        for (Node node :rootNodes){
-            Log.e("node",node.getName());
-            addNodes(result,node,defaultExpandLevel,1);
+        Log.e("roorNodes.length",rootNodes.size()+"");
+        for (int i = 0; i < rootNodes.size(); i++) {
+            Log.e("rooNode--"+i,rootNodes.get(i).getLabel());
         }
 
+        for (Node node :rootNodes){
+            Log.e("node",node.getLabel()+"---"+node.getId()+"---");
+            addNode(result,node,defaultExpandLevel,1);
+        }
 
         return result;
     }
@@ -122,8 +135,9 @@ public class TreeHelper {
      * @param defaultExpandLevel
      * @param   currentLevel
      */
-    private static void addNodes(List<Node> result, Node node, int defaultExpandLevel, int currentLevel) {
+    private static void addNode(List<Node> result, Node node, int defaultExpandLevel, int currentLevel) {
         result.add(node);
+        Log.e("node",node.getLabel()+"label");
         if (defaultExpandLevel>=currentLevel){
             node.setExpand(true);
         }
@@ -133,9 +147,11 @@ public class TreeHelper {
         }
 
         for (int i=0;i<node.getChildren().size();i++){
-            addNodes(result,node.getChildren().get(i),defaultExpandLevel,currentLevel+1);
+            addNode(result,node.getChildren().get(i),defaultExpandLevel,currentLevel+1);
 
         }
+
+        Log.e("result","result.size = "+result.size());
 
     }
 
