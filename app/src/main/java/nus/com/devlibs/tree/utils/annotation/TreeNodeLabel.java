@@ -1,4 +1,4 @@
-package nus.com.devlibs.treeView.bean.utils.annotation;
+package nus.com.devlibs.tree.utils.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

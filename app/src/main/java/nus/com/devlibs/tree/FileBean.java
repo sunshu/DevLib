@@ -1,8 +1,8 @@
-package nus.com.devlibs.treeView.bean;
+package nus.com.devlibs.tree;
 
-import nus.com.devlibs.treeView.bean.utils.annotation.TreeNodeId;
-import nus.com.devlibs.treeView.bean.utils.annotation.TreeNodeLabel;
-import nus.com.devlibs.treeView.bean.utils.annotation.TreeNodePid;
+import nus.com.devlibs.tree.utils.annotation.TreeNodeId;
+import nus.com.devlibs.tree.utils.annotation.TreeNodeLabel;
+import nus.com.devlibs.tree.utils.annotation.TreeNodePid;
 
 /**
  * Created by sun on 2016/7/13.
@@ -12,11 +12,16 @@ public class FileBean {
     private int id;
     @TreeNodePid
     private int pId;
-    @TreeNodePid
+    @TreeNodeLabel
     private String label;
 
     private String desc;
 
+    public FileBean(int id,  int pId,String label) {
+        this.id = id;
+        this.label = label;
+        this.pId = pId;
+    }
 
     public String getDesc() {
         return desc;

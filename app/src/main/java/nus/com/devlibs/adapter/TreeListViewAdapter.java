@@ -1,6 +1,7 @@
 package nus.com.devlibs.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,9 @@ import android.widget.ListView;
 
 import java.util.List;
 
-import nus.com.devlibs.treeView.bean.utils.Node;
-import nus.com.devlibs.treeView.bean.utils.TreeHelper;
+import nus.com.devlibs.tree.FileBean;
+import nus.com.devlibs.tree.utils.Node;
+import nus.com.devlibs.tree.utils.TreeHelper;
 
 /**
  * Created by sun on 2016/7/13.
@@ -41,7 +43,13 @@ public abstract class TreeListViewAdapter<T> extends BaseAdapter {
 
         this.mContext = mContext;
         mInflater = LayoutInflater.from(mContext);
+        for (int i=0;i<datas.size();i++){
+            Log.e("datas ->"+i,((FileBean)datas.get(i)).getLabel());
+        }
+
         mAllNodes = TreeHelper.getSortedNodes(datas,defaultExpandLevel);
+        Log.e("mAllNodes",mAllNodes.get(1).getName()+"");
+
         mVisibleNodes = TreeHelper.filterVisibleNodes(mAllNodes);
         mTree = tree;
 
@@ -95,8 +103,7 @@ public abstract class TreeListViewAdapter<T> extends BaseAdapter {
         convertView =getConvertView(node,position,convertView,parent);
         convertView.setPadding(node.getLevel()*3,3,3,3);
 
-
-        return null;
+        return convertView;
     }
 
     public abstract View getConvertView(Node node, int position, View convertView, ViewGroup parent) ;

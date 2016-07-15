@@ -1,4 +1,4 @@
-package nus.com.devlibs.treeView.bean.utils;
+package nus.com.devlibs.tree.utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,9 @@ public class Node {
 
     private int pid;
     private String label;
+    public Node() {
+
+    }
 
     public Node(int id,int pid, String label) {
         this.id = id;
@@ -39,7 +42,7 @@ public class Node {
         this.children = children;
     }
 
-    public int getIco() {
+    public int getIcon() {
         return ico;
     }
 

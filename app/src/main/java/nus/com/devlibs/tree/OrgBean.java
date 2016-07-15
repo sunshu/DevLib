@@ -1,4 +1,4 @@
-package nus.com.devlibs.treeView.bean;
+package nus.com.devlibs.tree;
 
 /**
  * Created by sun on 2016/7/13.
