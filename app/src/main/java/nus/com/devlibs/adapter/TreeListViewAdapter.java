@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -39,7 +40,22 @@ public abstract class TreeListViewAdapter<T> extends BaseAdapter {
         this.mListener = mListenr;
     }
 
-    public TreeListViewAdapter(ListView tree, Context mContext, List<T> datas, int defaultExpandLevel) throws IllegalAccessException {
+//    /**
+//     * 设置Node的长按回掉
+//     *
+//     */
+//    private interface OnTreeNodeLongClickListener{
+//        void onLongClick(Node node,int position);
+//    }
+//    private OnTreeNodeLongClickListener mLongListener;
+//    private void setOnTreeNodeLongClickListener(OnTreeNodeLongClickListener mLongListener){
+//        this.mLongListener = mLongListener;
+//    }
+
+
+
+
+    public TreeListViewAdapter(ListView tree, final Context mContext, List<T> datas, int defaultExpandLevel) throws IllegalAccessException {
 
         this.mContext = mContext;
         mInflater = LayoutInflater.from(mContext);
@@ -79,6 +95,19 @@ public abstract class TreeListViewAdapter<T> extends BaseAdapter {
                 }
             }
         });
+
+        mTree.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Toast.makeText(mContext,""+position,Toast.LENGTH_SHORT).show();
+
+
+                return true;
+            }
+        });
+
+
+
     }
 
     @Override

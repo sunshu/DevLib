@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,7 +27,7 @@ import nus.com.devlibs.AppContext;
 import nus.com.devlibs.R;
 
 
-public class FirstActivity extends AppCompatActivity implements View.OnClickListener {
+public class FirstActivity extends BaseActivity implements View.OnClickListener {
 
 
     private Button btn_start;
@@ -36,6 +37,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_first);
         context = AppContext.getContext();
         BGABanner banner = (BGABanner) findViewById(R.id.banner_guide_content);
@@ -44,7 +46,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         btn_start.setOnClickListener(this);
         tv_skip.setOnClickListener(this);
         btn_start.setVisibility(View.GONE);
-//        tv_skip.setVisibility(View.GONE);
+
 
         List<View> views = new ArrayList<View>();
         views.add(BGABannerUtil.getItemImageView(this,R.drawable.newer01));
@@ -78,24 +80,6 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         });
 
         banner.setData(views);
-
-
-//        BGABanner.Adapter adapter = new BGABanner.Adapter() {
-//            @Override
-//            public void fillBannerItem(BGABanner banner, View view, Object model, int position) {
-//
-//                ((ImageView) view).setImageResource((int) model);
-//
-//            }
-//        };
-//        banner.setData(Arrays.asList(R.drawable.newer01, R.drawable.newer02, R.drawable.newer03, R.drawable.newer04), null);
-//        banner.setAdapter(adapter);
-
-
-
-
-
-
 
 
     }

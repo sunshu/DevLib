@@ -38,19 +38,11 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
 
@@ -77,9 +69,11 @@ public class MainActivity extends AppCompatActivity
         mDatas.add(fileBean);
         fileBean = new FileBean(6,5,"根目录1-2-1");
         mDatas.add(fileBean);
-        fileBean = new FileBean(7,3,"根目录1-2");
+        fileBean = new FileBean(7,3,"根目录3-2");
         mDatas.add(fileBean);
         fileBean = new FileBean(8,7,"根目录3-2-1");
+        mDatas.add(fileBean);
+        fileBean = new FileBean(9,7,"根目录5-3-1");
         mDatas.add(fileBean);
 
         try {

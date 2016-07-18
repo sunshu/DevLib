@@ -95,15 +95,29 @@ public class TreeHelper {
      * 为Node设置图标
      */
     private static void setNodeIcon(Node n) {
+
         if (n.getChildren().size()>0 && n.isExpand()){
             n.setIco(R.drawable.tree_ex);
-        }else
-            if(n.getChildren().size() >0 && !n.isExpand() ){
+        }else if(n.getChildren().size()>0 && !n.isExpand()){
             n.setIco(R.drawable.tree_ec);
-            }
-        else{
-                n.setIco(-1);
-            }
+        }else {
+            n.setIco(-1);
+        }
+
+
+
+
+//        if (n.getChildren().size()>0 && n.isExpand()){
+//            n.setIco(R.drawable.tree_ex);
+//        }else
+//            if(n.getChildren().size() >0 && !n.isExpand() ){
+//            n.setIco(R.drawable.tree_ec);
+//            }
+//        else{
+//                Log.e("n.getChildren().size()",""+n.getChildren().size());
+//                Log.e("!n.isExpand()",""+!n.isExpand());
+//                n.setIco(-1);
+//            }
 
     }
 
