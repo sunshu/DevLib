@@ -10,5 +10,12 @@
 
     <string name="action_settings">设置</string>
 
+    // menu
+    <string name="menu_scan">扫描二维码</string>
+    <string name="menu_pic">画册</string>
+    <string name="menu_video">视频</string>
+    <string name="menu_tools">工具</string>
+    <string name="menu_share">分享</string>
+
 
 </resources>

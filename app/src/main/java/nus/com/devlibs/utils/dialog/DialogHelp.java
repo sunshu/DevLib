@@ -1,4 +1,4 @@
-package nus.com.devlibs.utils;
+package nus.com.devlibs.utils.dialog;
 
 import android.app.ProgressDialog;
 import android.content.Context;

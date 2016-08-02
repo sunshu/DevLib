@@ -1,5 +1,6 @@
 package nus.com.devlibs.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -129,7 +131,10 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_tools) {
+            Toast.makeText(getApplicationContext(),"Tools",Toast.LENGTH_LONG).show();
+            startActivity(new Intent(getBaseContext(),ToolsActivity.class));
+
 
         } else if (id == R.id.nav_share) {
 
@@ -138,7 +143,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+//        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 }
